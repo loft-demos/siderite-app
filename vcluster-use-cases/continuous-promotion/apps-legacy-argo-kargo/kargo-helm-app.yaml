@@ -21,7 +21,7 @@ spec:
     helm:
       values: |
         api:
-          host: {REPLACE_KARGO_HOST}
+          host: kargo-siderite.us.demo.dev
 
           adminAccount:
             enabled: true
@@ -30,11 +30,11 @@ spec:
 
           argocd:
             urls:
-              "": "https://{REPLACE_ARGOCD_HOST}"
+              "": "https://argocd-siderite.us.demo.dev"
 
           oidc:
             enabled: true
-            issuerURL: "https://{REPLACE_KARGO_HOST}/dex"
+            issuerURL: "https://kargo-siderite.us.demo.dev/dex"
             clientID: "kargo"
             additionalScopes:
               - email
@@ -50,11 +50,11 @@ spec:
                   id: vcp
                   name: vCluster Platform
                   config:
-                    issuer: "https://{REPLACE_BASE_DOMAIN}/oidc"
+                    issuer: "https://us.demo.dev/oidc"
                     clientID: "kargo"
                     clientSecret: "{REPLACE_KARGO_OIDC_SECRET}"
                     insecureSkipVerify: true
-                    redirectURI: "https://{REPLACE_KARGO_HOST}/dex/callback"
+                    redirectURI: "https://kargo-siderite.us.demo.dev/dex/callback"
 
           tls:
             enabled: false
@@ -70,7 +70,7 @@ spec:
               enabled: false
 
         externalWebhooksServer:
-          host: {REPLACE_KARGO_WEBHOOK_HOST}
+          host: kargo-webhooks-siderite.us.demo.dev
           tls:
             enabled: false
             terminatedUpstream: true
